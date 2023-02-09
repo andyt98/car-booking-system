@@ -3,8 +3,10 @@ package com.amigoscode;
 import com.amigoscode.booking.CarBooking;
 import com.amigoscode.booking.CarBookingDao;
 import com.amigoscode.booking.CarBookingService;
+import com.amigoscode.booking.CarBookingListDataAccessService;
 import com.amigoscode.car.Car;
 import com.amigoscode.car.CarDAO;
+import com.amigoscode.car.CarListDataAccessService;
 import com.amigoscode.car.CarService;
 import com.amigoscode.user.*;
 
@@ -19,8 +21,8 @@ public class Main {
         UserDao userDao = new UserFakerDataAccessService();
         UserService userService = new UserService(userDao);
 
-        CarBookingDao carBookingDao = new CarBookingDao();
-        CarDAO carDAO = new CarDAO();
+        CarBookingDao carBookingDao = new CarBookingListDataAccessService();
+        CarDAO carDAO = new CarListDataAccessService();
 
         CarService carService = new CarService(carDAO);
         CarBookingService carBookingService = new CarBookingService(carBookingDao, carService);
